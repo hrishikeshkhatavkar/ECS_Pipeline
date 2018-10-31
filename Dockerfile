@@ -7,7 +7,7 @@ WORKDIR /code
 RUN go test
 
 # Build app
-RUN go build -o sample-app
+RUN go build --tags nopkcs11
 
 FROM alpine
 
