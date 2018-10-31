@@ -26,7 +26,7 @@ pipeline {
         // Build the Docker image
         sh "docker build -t ${docker_repo_uri}:${commit_id} ."
         // Get Docker login credentials for ECR
-        sh "aws ecr get-login  --aws-access-key AKIAIEUBK5GWCYQYY5YA  --aws-secret-key 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  --no-include-email --region ${region} | sh"
+        sh "aws ecr get-login  --no-include-email --region ${region} | sh"
         // Push Docker image
         sh "docker push ${docker_repo_uri}:${commit_id}"
         // Clean up
